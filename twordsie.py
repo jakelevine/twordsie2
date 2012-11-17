@@ -5,15 +5,8 @@ from flask import url_for
 from flask import request
 from os import environ
 import urllib2
-import urllib
 import json
-from bs4 import BeautifulSoup
-import time
-import datetime
-from datetime import timedelta
-from datetime import date
 import simplejson
-import gviz_api
 
 
 from werkzeug.contrib.cache import SimpleCache

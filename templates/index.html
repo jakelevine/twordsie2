@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" > 	
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
+	<style>
+	
+	table
+	{
+		border-collapse:collapse;
+	}
+	table, td, th
+	{
+		border:1px solid black;
+		text-align:center;
+	}
+	td
+	{
+		height:20px;
+		width:100px;
+		text-align:center;
+		padding:5px;
+	}
+	
+	
+	
+	</style>
+	
+</head>
+<body>
+
+		
+	<br>
+	<br>
+	
+	<div class ="userlinks">
+	<div class ="username">	Enter your Twitter handle
+	<form name="input" action="/results" method="get">
+		<p>
+		<input type="text" name="username" placeholder="@username" />
+		<input type="submit" value="Submit" />
+		</div>
+	</form>	
+	</div>
+	   	
+
+</body>
+</html>

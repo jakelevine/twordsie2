@@ -27,6 +27,16 @@
 
 <div id="wcdiv"></div>
 
+<br>
+{% for name, count in mentions %}
+You mentioned {{ name }} {{ count }} times.
+<br>
+{% endfor %}
+<br><br>
+{% for word, count in wordcount %}
+The word "{{ word }}" appeared {{ count }} times.
+<br>
+{% endfor %}
 
   </body>
 </html>

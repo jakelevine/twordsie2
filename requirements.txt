@@ -1,15 +1,11 @@
 Django==1.4
 Flask==0.8
 Jinja2==2.6
-PyRSS2Gen==1.0.0
-Twisted==11.0.0
 Werkzeug==0.8.3
-altgraph==0.8
-python-rdio==0.5
 simplejson==2.2.1
 virtualenv==1.7.1.2
 wsgiref==0.1.2
 xattr==0.6.1
 zope.interface==3.5.1
 requests==0.11.1
-BeautifulSoup4==4.0.5
+urllib2

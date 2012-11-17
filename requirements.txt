@@ -8,4 +8,3 @@ wsgiref==0.1.2
 xattr==0.6.1
 zope.interface==3.5.1
 requests==0.11.1
-urllib2

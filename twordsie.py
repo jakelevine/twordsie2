@@ -17,14 +17,12 @@ from mongoengine import *
 from mongoengine import connect
 
 
-
-
 from werkzeug.contrib.cache import SimpleCache
 cache = SimpleCache()
 
 
 app = Flask(__name__)
-connect('twordsie')
+connect('twordsie', 'mongodb://jake:canttouch@alex.mongohq.com:10078/app9292233')
 
 class User(Document):
 	wordcount = ListField(ListField())

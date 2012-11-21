@@ -27,6 +27,7 @@ connect('twordsie', host='mongodb://heroku:windows@alex.mongohq.com:10078/app929
 class User(Document):
 	wordcount = ListField(ListField())
 	mentions = ListField(ListField())
+	tweets = DynamicField()
 	username = StringField(max_length=50)
 
 @app.route('/')
@@ -44,9 +45,9 @@ def gettweets():
 	username_mentions = username+'_mentions'
 	username_wordcount = username+'_wordcount'
 	
-#	things = cache.get_many(username, username_mentions, username_wordcount)
-#	if things[0] is not None:
-#		return render_template("results.html",data=json.dumps(things[0]), mentions=things[1], wordcount=things[2])
+	things = cache.get_many(username, username_mentions, username_wordcount)
+	if things[0] is not None:
+		return render_template("results.html",data=json.dumps(things[0]), mentions=things[1], wordcount=things[2])
 		
 	url = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name='+username+'&count=200'
 	content = urllib2.urlopen(url)
@@ -59,11 +60,8 @@ def gettweets():
 	mentions = getmentions(tweets)
 	
 	
-	user = User(username=username, wordcount=wordcount, mentions=mentions)
+	user = User(username=username, wordcount=wordcount, mentions=mentions, tweets = tweets)
 	user.save()
-	
-#	for user in User.objects:
-#		theemail = str(user.username)
 		
 	cache.set_many({username:data,username_mentions:mentions,username_wordcount:wordcount}, timeout=20 * 60)
 		

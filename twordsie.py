@@ -62,14 +62,12 @@ def gettweets():
 	user = User(username=username, wordcount=wordcount, mentions=mentions)
 	user.save()
 	
-	for user in User.objects:
-		theemail = str(user.username)
+#	for user in User.objects:
+#		theemail = str(user.username)
 		
-	return theemail
-
-#	cache.set_many({username:data,username_mentions:mentions,username_wordcount:wordcount}, timeout=20 * 60)
+	cache.set_many({username:data,username_mentions:mentions,username_wordcount:wordcount}, timeout=20 * 60)
 		
-#	return render_template("results.html",data=json.dumps(data), wordcount=wordcount, mentions=mentions)
+	return render_template("results.html",data=json.dumps(data), wordcount=wordcount, mentions=mentions)
 	
 
 def getmentions(tweets):

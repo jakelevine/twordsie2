@@ -28,7 +28,7 @@ class User(Document):
 	wordcount = ListField(ListField())
 	mentions = ListField(ListField())
 	tweets = DynamicField()
-	username = StringField(max_length=50)
+	username = StringField(max_length=50, primary_key=True, unique=True)
 
 @app.route('/')
 def main():
@@ -45,9 +45,9 @@ def gettweets():
 	username_mentions = username+'_mentions'
 	username_wordcount = username+'_wordcount'
 	
-	things = cache.get_many(username, username_mentions, username_wordcount)
-	if things[0] is not None:
-		return render_template("results.html",data=json.dumps(things[0]), mentions=things[1], wordcount=things[2])
+#	things = cache.get_many(username, username_mentions, username_wordcount)
+#	if things[0] is not None:
+#		return render_template("results.html",data=json.dumps(things[0]), mentions=things[1], wordcount=things[2])
 		
 	url = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name='+username+'&count=200'
 	content = urllib2.urlopen(url)
@@ -59,13 +59,15 @@ def gettweets():
 	wordcount = getwordcount(tweets)
 	mentions = getmentions(tweets)
 	
+	names = []
 	
 	user = User(username=username, wordcount=wordcount, mentions=mentions, tweets = tweets)
 	user.save()
-		
-	cache.set_many({username:data,username_mentions:mentions,username_wordcount:wordcount}, timeout=20 * 60)
-		
+	
+#	cache.set_many({username:data,username_mentions:mentions,username_wordcount:wordcount}, timeout=20 * 60)
+	
 	return render_template("results.html",data=json.dumps(data), wordcount=wordcount, mentions=mentions)
+	
 	
 
 def getmentions(tweets):

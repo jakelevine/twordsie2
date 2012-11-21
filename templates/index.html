@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" > 	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	
@@ -29,20 +31,37 @@
 	
 </head>
 <body>
-
-		
-	<br>
-	<br>
-	
-	<div class ="userlinks">
-	<div class ="username">	Enter your Twitter handle
-	<form name="input" action="/results" method="get">
-		<p>
-		<input type="text" name="username" placeholder="@username" />
-		<input type="submit" value="Submit" />
-		</div>
-	</form>	
+<div id ="content">
+	<div class ="headline">	
+	Welcome to Twordsie!
 	</div>
+	Twordsie will show you your most frequently tweeted words.
+	
+
+	<div id ="enter">
+		<p>	
+		Step 1. Enter your Twitter handle
+		<p>
+		Step 2. Hit Submit
+	<form name="input" action="/results" method="get">
+		<input type="text" class="form-field" id="input" name="username" placeholder="@username" />
+		<input type="submit" value="Submit" class="button" />
+	</form>
+		<p>
+		Step 3. Reap reward
+	</div>
+	<p>
+	<hr>
+	<p>
+		Check out some recent examples
+		<div id = "recents">
+		<p>
+		{% for username in recentusers %}
+		<a href="http://twordsie.herokuapp.com/results?username={{ username }}">{{ username }}</a>
+		<br>
+		{% endfor %}
+		</div>
+</div>
 	   	
 
 </body>

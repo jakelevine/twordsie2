@@ -33,8 +33,12 @@ class User(Document):
 @app.route('/')
 def main():
 	
-
-	return render_template("index.html")
+	recentusers = []
+	
+	for user in User.objects[:5]:
+		recentusers.append(user.username)
+	
+	return render_template("index.html", recentusers=recentusers)
 
 
 @app.route('/results',methods=['POST', 'GET'])

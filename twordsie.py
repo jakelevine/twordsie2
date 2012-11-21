@@ -22,7 +22,7 @@ cache = SimpleCache()
 
 
 app = Flask(__name__)
-connect('twordsie', 'mongodb://jake:canttouch@alex.mongohq.com:10078/app9292233')
+connect('twordsie', host='mongodb://heroku:windows@alex.mongohq.com:10078/app9292233')
 
 class User(Document):
 	wordcount = ListField(ListField())

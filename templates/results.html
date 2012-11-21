@@ -29,12 +29,12 @@
 
 <br>
 {% for name, count in mentions %}
-You mentioned {{ name }} {{ count }} times.
+You mentioned <a href="http://twordsie.herokuapp.com/results?username={{ name }}">{{ name }}</a> {{ count }} times.
 <br>
 {% endfor %}
 <br><br>
 {% for word, count in wordcount %}
-The word "{{ word }}" appeared {{ count }} times.
+The word <a href="http://search.twitter.com/search?q={{ word }}">"{{ word }}"</a> appeared {{ count }} times.
 <br>
 {% endfor %}
 

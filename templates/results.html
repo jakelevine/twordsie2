@@ -3,16 +3,21 @@
   <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='wc.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="{{ url_for('static', filename='wc.js') }}"></script>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 
   </head>
   <body>
-
-	
+	<div id ="content">
+	<div class = "headline">
+		Twordsie results for {{username}}
+	</div>
+		
 	{% autoescape false %}
-	
     <script type="text/javascript">
       google.load("visualization", "1");
       google.setOnLoadCallback(draw);
@@ -26,19 +31,38 @@
       }
     </script>
 		{% endautoescape %}
+		
+<div id ="cloud">
+	<div id="wcdiv"></div>
+</div>
+	
+<div id="share">Share your Twordsie results</div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-related="jrlevine" data-text="My most commonly tweeted word is [blank]! Get your own Twordsie word cloud!" data-url="http://twordsie.herokuapp.com/results?username={{username}}" data-via="jrlevine" data-lang="en" data-size="large" data-count="none">Tweet</a>
 
-<div id="wcdiv"></div>
+<div id= "details"><a href="#"> Show details</a></div>
 
-<br>
-{% for name, count in mentions %}
-You mentioned <a href="http://twordsie.herokuapp.com/results?username={{ name }}">{{ name }}</a> {{ count }} times.
-<br>
-{% endfor %}
-<br><br>
-{% for word, count in wordcount %}
-The word <a href="http://search.twitter.com/search?q={{ word }}">"{{ word }}"</a> appeared {{ count }} times.
-<br>
-{% endfor %}
+<div id ="mentions">
+	{% for name, count in mentions %}
+	You mentioned <a href="http://twordsie.herokuapp.com/results?username={{ name }}">{{ name }}</a> {{ count }} times.
+	<br>
+	{% endfor %}
+</div>
+
+<div id ="words">
+	{% for word, count in wordcount %}
+	The word <a href="http://search.twitter.com/search?q={{ word }}">"{{ word }}"</a> appeared {{ count }} times.
+	<br>
+	{% endfor %}
+</div>
+
+</div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<script type ="text/javascript">
+    $("#details").click(function () {
+      $("#mentions, #words").slideToggle("fast");
+    });
+</script>
 
   </body>
 </html>

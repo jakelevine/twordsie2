@@ -18,7 +18,7 @@ body
 	}
 
 .headline{
-	font-size:48px;
+	font-size:44px;
 }
 
 
@@ -28,6 +28,25 @@ body
 	margin-top:25px;
 	
 	}
+	
+#cloud{
+	margin-top:20px;
+	border-bottom:2px solid lightgray;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+
+#mentions{
+	float:left;
+	border-right:1px lightgray solid;	
+	padding-right:10px;
+	display:none;
+}
+
+#words{
+	float:right;
+	display:none;
+}
 
 #enter{
 	margin-top:50px;
@@ -36,6 +55,20 @@ body
 #recents{
 	line-height:24px;
 }
+#details{
+	margin-bottom:15px;
+	
+}
+#share{
+
+}
+#custom-tweet-button a {
+    display: block;
+    padding: 2px 5px 2px 20px;
+    background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+    border: 1px solid #ccc;
+  }
+</style>
 
 
 hr {

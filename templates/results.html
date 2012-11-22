@@ -9,7 +9,13 @@
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-
+	<meta property="og:title" content="Twordsie &#x2014; {{username}}'s Most Tweeted Words" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://twordsie.herokuapp.com" />
+	<meta property="og:image" content="" />
+	<meta property="og:site_name" content="Twordsie" />
+	<meta property="fb:admins" content="4201375" />
+	
   </head>
   <body>
 	<div id ="content">
@@ -36,10 +42,14 @@
 	<div id="wcdiv"></div>
 </div>
 	
-<div id="share">Share your Twordsie results</div>
-<a href="https://twitter.com/share" class="twitter-share-button" data-related="jrlevine" data-text="My most commonly tweeted word is [blank]! Get your own Twordsie word cloud!" data-url="http://twordsie.herokuapp.com/results?username={{username}}" data-via="jrlevine" data-lang="en" data-size="large" data-count="none">Tweet</a>
+<div class="custom-button" id="tw-button">
+  <a href="https://twitter.com/share?url=http://twordsie.herokuapp.com/results?username={{username}}&text=Check out my most frequently tweeted words! via @jrlevine" target="_blank">Share on Twitter</a>
+</div>
+<div class="custom-button" id="fb-button">
+<a href="https://www.facebook.com/dialog/feed?display=page&amp;app_id=515478445137430&amp;link=http://twordsie.herokuapp.com/results?username={{username}}&amp;redirect_uri=http://twordsie.herokuapp.com/results?username={{username}}&amp;name=Check out {{username}}'s most tweeted words&amp;caption=Twordsie will show you your most frequently tweeted words." class="btn-share-story-link share-story-link" target="_blank">Share on Facebook</a>
+</div>
 
-<div id= "details"><a href="#"> Show details</a></div>
+<div id= "details" class="custom-button"><a href="#">Show details</a></div>
 
 <div id ="mentions">
 	{% for name, count in mentions %}
@@ -56,8 +66,6 @@
 </div>
 
 </div>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
 <script type ="text/javascript">
     $("#details").click(function () {
       $("#mentions, #words").slideToggle("fast");

@@ -41,11 +41,13 @@ body
 	border-right:1px lightgray solid;	
 	padding-right:10px;
 	display:none;
+	margin-top:40px;
 }
 
 #words{
 	float:right;
 	display:none;
+	margin-top:40px;
 }
 
 #enter{
@@ -56,19 +58,13 @@ body
 	line-height:24px;
 }
 #details{
-	margin-bottom:15px;
+	float:left;
 	
 }
-#share{
-
+#tw-button, #fb-button{
+	float:right;
+	margin-left:10px;
 }
-#custom-tweet-button a {
-    display: block;
-    padding: 2px 5px 2px 20px;
-    background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
-    border: 1px solid #ccc;
-  }
-</style>
 
 
 hr {
@@ -78,7 +74,7 @@ hr {
 	margin-bottom: 0px;
 }
 
-.button {
+.button, .custom-button {
  font-family: "source-sans-pro", Arial, "Helvetica Nueue", Helvetica, sans-serif;
  background-color: #999;
  -moz-border-radius: 5px;
@@ -97,17 +93,27 @@ hr {
  text-shadow: 0 -1px 0 #666;
 }
 
-.button:hover {
+.button:hover, .custom-button:hover {
  color: #FFF;
  background: #9C9C9C !important;
 }
 
-.button:active {
+.button:active, .custom-button:active  {
  color: #DDD;
  -webkit-box-shadow: inset 0 1px 2px 0 #737373;
  box-shadow: inset 0 1px 2px 0 #737373;
  background: #888 !important;
 }
+
+.custom-button {
+	 height: 15px;
+ }
+
+.custom-button a, .custom-buttom a:visited, .custom-buttom a:active{
+	color:#EEE;
+}
+
+
 input.form-field {
 	min-width: 185px;
 	height: 18px;

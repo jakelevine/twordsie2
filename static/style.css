@@ -27,6 +27,14 @@ body
 	margin-bottom:30px;
 }
 
+.firstheadline{
+	font-size:44px;
+	text-align:center;
+}
+.subhead{
+	text-align:center;
+}
+
 
 #content { 
 	width: 643px;

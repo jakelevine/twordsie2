@@ -1,5 +1,4 @@
 from __future__ import with_statement
-from flask.ext.sqlalchemy import SQLAlchemy
 import os
 from flask import render_template
 from flask import Flask

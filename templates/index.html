@@ -6,6 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" > 	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	
+	<meta name="description" content="Know thyself! Twordsie will show you your most tweeted words, and your closest friends on Twitter.">
+
+
+
 	<style>
 	
 	table
@@ -29,6 +33,22 @@
 	
 	</style>
 	
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2442790-9']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
 </head>
 <body>
 <div id ="content">
@@ -40,7 +60,7 @@
 
 	<div id ="enter">
 		<p>	
-		Step 1. Enter your Twitter handle
+		Step 1. Enter Your Twitter handle
 		<p>
 		Step 2. Hit Submit
 	<form name="input" action="/results" method="get">
@@ -48,7 +68,7 @@
 		<input type="submit" value="Submit" class="button" />
 	</form>
 		<p>
-		Step 3. Reap reward
+		Step 3. Reap Glorious Reward
 	</div>
 	<p>
 	<hr>
@@ -57,12 +77,17 @@
 		<div id = "recents">
 		<p>
 		{% for username in recentusers %}
-		<a href="http://twordsie.herokuapp.com/results?username={{ username }}">{{ username }}</a>
+		<a href="http://www.twordsie.com/results?username={{ username }}">{{ username }}</a>
 		<br>
 		{% endfor %}
 		</div>
+
+	<div class = "footer">
+	Twordsie is an experiment in programming by <a href="http://www.jakelevine.me">Jake Levine</a> (<a href="http://www.twitter.com/jrlevine">@jrlevine</a>) and <a href="http://www.alexrosen.com">Alex Rosen</a> (<a href="http://www.twitter.com/alexmr">@alexmr</a>) This is version 2, built using Python/Flask on Heroku. The original was built on Google's App Engine and <a href="http://twordsie.appspot.com/">is very ugly</a>.
+	</div>	   	
+
 </div>
-	   	
+
 
 </body>
 </html>

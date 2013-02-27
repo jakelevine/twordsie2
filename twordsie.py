@@ -70,12 +70,17 @@ def gettweets():
 	wordcount = getwordcount(tweets)
 	mentions = getmentions(tweets)
 		
+	
+	cleanuser = re.sub('@', '', username)
+
+
+
 	user = User(username=username, wordcount=wordcount, mentions=mentions, tweets = tweets)
 	user.save()
 	
 	cache.set_many({username:username,username_data:data,username_mentions:mentions,username_wordcount:wordcount}, timeout=20 * 60)
 	
-	return render_template("results.html",data=json.dumps(data), wordcount=wordcount, mentions=mentions, username=username)
+	return render_template("results.html",data=json.dumps(data), wordcount=wordcount, mentions=mentions, username=username, cleanuser=cleanuser)
 	
 	
 

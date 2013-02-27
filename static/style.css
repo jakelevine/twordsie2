@@ -28,11 +28,12 @@ body
 }
 
 .firstheadline{
-	font-size:44px;
+	font-size:66px;
 	text-align:center;
 }
 .subhead{
 	text-align:center;
+	font-size: 24px;
 }
 
 
@@ -72,7 +73,8 @@ body
 }
 
 #enter{
-	margin-top:50px;
+	margin-top:40px;
+	text-align: center;
 }	
 
 #recents{

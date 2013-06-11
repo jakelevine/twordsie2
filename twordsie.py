@@ -34,8 +34,11 @@ def main():
 	
 	recentusers = []
 	
-	for user in User.objects[len(User.objects)-5:]:
-		recentusers.append(user.username)
+	try:
+		for user in User.objects[len(User.objects)-5:]:
+			recentusers.append(user.username)
+	except:
+		return render_template("index.html", recentusers=recentusers)	
 	
 	return render_template("index.html", recentusers=recentusers)
 
